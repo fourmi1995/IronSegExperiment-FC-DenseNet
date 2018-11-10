@@ -1,0 +1,22 @@
+CUDA_VISIBLE_DEVICES=1 python main.py \
+--mode=train \
+--train_data=./IronData_Camvid_train_val/training \
+--val_data=./IronData_Camvid_train_val/testing \
+--ckpt=/home/liushixin/AI/chendali/shengjunGao/Dataset/FC-DenseNet-train/model.ckpt \
+--layers_per_block=4,5,7,10,12,15 \
+--learning_policy=no \
+--batch_size=2 --epochs=120 --growth_k=16 --num_classes=4 --learning_rate=0.001
+
+--layers_per_block=4,5,7,10,12,15 \
+--layers_per_block=1,1,1,1,1,1 \
+
+CUDA_VISIBLE_DEVICES=0 python main.py \
+--mode=infer \
+--infer_data=./IronData_Camvid_train_val/testing/images \
+--infer_mask=./IronData_Camvid_train_val/testing/masks \
+--ckpt=/home/liushixin/AI/chendali/shengjunGao/Dataset/FC-DenseNet-train/model.ckpt-0 \
+--layers_per_block=4,5,7,10,12,15 \
+--batch_size=10 \
+--growth_k=16 \
+--num_classes=4 \
+--output_folder=./outputs
