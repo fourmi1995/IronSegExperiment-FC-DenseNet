@@ -87,3 +87,5 @@ Currently, the test coverage is not that high, I plan to keep adding more in the
 5. Update with some examples of performance once trained.
 6. ~~Increase test coverage.~~
 7. Save loss summaries for Tensorboard.
+
+原github网址：https://github.com/HasnainRaz/FC-DenseNet-TensorFlow
